@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    *{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+    font-family:'Kanit', 'sans-serif';
+    }
+    body{
+        min-height: 100vh;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        gap: calc(1em + 1vh);
+        background-color: #fcfcfe;
+    }
+    body > div{
+        width: 100%;
+        border-radius: 20px;
+        max-width: 450px;
+        height: auto;
+        display:flex;
+        align-items: center;
+        background-color: transparent;
+    }
+    .bar{
+        padding: 1em;
+        justify-content: space-between;
+    }
+    .bar div{
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bar .userIcon,.bar .barsIcon{
+        width: 15%;
+        aspect-ratio: 1;
+        border-radius:50%;
+        background-image: linear-gradient(0deg,#7d4aed,#4469ff);
+    }
+    .bar .barsIcon{
+        background-color: #0003;
+        background-image: none;
+    }
+    .bar div img{
+        width: 70%;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+    .bar .bluImg{
+        width: 30%;
+        aspect-ratio: 327/165;
+    }
+    .bar .bluImg img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .buttons{
+        padding: 0 1em;
+        height: 7vh;
+        justify-content: space-evenly;
+        background-color: transparent;
+        gap: 1em;
+    }
+    .buttons button{
+        background-image: linear-gradient(to right,#7d4aed,#4469ff);
+        color:#fff;
+        font-weight: 100;
+        border:none;
+        border-radius: 1em;
+        height: 100%;
+        padding: .2em;
+        font-weight: bold;
+        cursor:pointer;
+        outline: none;
+        box-shadow: 0 5px 10px #0006;
+        flex-grow: 2;
+    }
+    .buttons button:nth-child(2),.buttons button:nth-child(3){
+        background-color: #f6f6ff;
+        background-image: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+    }
+    .card{
+        justify-content: center;
+        background-color: transparent;
+        position:relative;
+        background-color: #0006;
+        aspect-ratio: 346/218;
+        width:90%;
+        max-width: 400px;
+    }
+    .card img{
+        width: 100%;
+        border-radius: 15px;
+        object-fit: cover;
+        box-shadow: 0 5px 10px #0006;
+        position:absolute;
+    }
+    .card h2{
+        z-index: 100000;
+        position: absolute;
+        left: 5%;
+        color:#fff;
+        font-weight: 300;
+    }
+    .card h2:nth-child(1){
+        top: 5%;
+        font-size: calc(.8em + .8vw);
+    }
+    .card h2:nth-child(3){
+        bottom: 5%;
+        font-size: calc(1.3em + 1.3vw);
+    }
+    .card h2:nth-child(4){
+        bottom: 25%;
+        font-size: calc(.6em + .6vw);
+    }
+    .transactions{
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        padding: 2em 0;
+        gap: 1em;
+        border-radius: 1em 1em 0 0;
+        height: 40vh;
+        background-color: #0002;
+        position: relative;
+    }
+    .transactions::before{
+        content: ' ';
+        width: 50%;
+        height: 2px;
+        border-radius: 10px;
+        background-color: inherit;
+        top: 5%;
+        margin: auto;
+        position: absolute
+    }
+    .activity{
+        justify-content: space-between;
+        padding: .5em;
+    }
+    .activity h2{
+        font-size: calc(.9em + .9vw);
+    }
+    .activity h4,.today h2{
+        font-size: calc(.7vw + .7em);
+    }
+    .today{
+        justify-content: flex-start;
+        padding: .5em;
+    }
+    .rewards{
+        justify-content: space-around;
+        align-items: center;
+        padding: .4em .6em;
+        display:flex;
+        width: 90%;
+        height: auto;
+        background-color: #fff;
+        border-radius: 1em;
+        background-color: transparent;
+    }
+    .rewards .img{
+        width: 20%;
+        aspect-ratio: 1;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: #0003;
+    }
+    .rewards .img h2{
+        font-size: calc(1.2em + 1.4vw);
+        font-weight: 300;
+    }
+    .rewards .text{
+        width:50%;
+    }
+    .rewards .number{
+        width: 20%;
+    }
+    .rewards .text{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: .3em;
+    }
+    .rewards .text h2{
+        font-size: calc(.7em + .9vw);
+        font-weight: 600;
+    }
+    .rewards .text h3{
+        font-size: calc(.7em + .7vw);
+        color:#666
+    }
+    .rewards .number{
+        display:flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .rewards .number h2{
+        color: green;
+        text-align: right;
+        font-size: calc(.8em + 1vw);
+        font-weight: 300;
+    }
+</style>
+<body>
+    <div class="bar">
+        <div class="userIcon">
+            <img src="images/person_FILL0_wght400_GRAD0_opsz24.png">
+        </div>
+        <div class="bluImg">
+            <img src="images/descarga.png">
+        </div>
+        <div class="barsIcon">
+            <img src="images/tune_FILL0_wght400_GRAD0_opsz24.svg">
+        </div>
+    </div>
+    <h2>My Cards</h2>
+    <div class="card">
+        <h2>55086*******9433</h2>
+        <img src="images/20240331_182316.jpg">
+        <h2>€400</h2>
+        <h2>Balance</h2>
+    </div>
+    <div class="buttons">
+        <button>Transfer</button>
+        <button><img src="images/download_FILL0_wght400_GRAD0_opsz24.png"></button>
+        <button><img src="images/add_FILL0_wght400_GRAD0_opsz24.svg"></button>
+    </div>
+    <div class="transactions">
+        <div class="rewards">
+            <div class="img">
+                <h2>S</h2>
+            </div>
+            <div class="text">
+                <h2>Purchase return</h2>
+                <h3>1 April 2024</h3>
+            </div>
+            <div class="number">
+                <h2>€100</h2>
+            </div>
+        </div>
+        <div class="rewards">
+            <div class="img">
+                <h2>C</h2>
+            </div>
+            <div class="text">
+                <h2>Credit</h2>
+                <h3>1 April 2024</h3>
+            </div>
+            <div class="number">
+                <h2>€300</h2>
+            </div>
+        </div>
+        
+    </div>
+    <!-- <div class="activity">
+        <h2>Card Activity</h2>
+        <h4>View All</h4>
+    </div>
+    <div class="today">
+        <h2>Today</h2>
+    </div>
+    <div class="rewards">
+        <div>
+            <img src="images/descarga.png">
+        </div>
+        <div class="text">
+            <h2>Spend rewards</h2>
+            <h3>text</h3>
+        </div>
+        <div class="number">
+            <h2>$*****</h2>
+        </div>
+    </div> -->
+    <!-- <nav class="bar">
+        <div class="icons">
+            <img src="images/home_FILL0_wght400_GRAD0_opsz24.svg">
+            <h2>Home</h2>
+        </div>
+        <div class="icons">
+            <img src="images/credit_card_FILL0_wght400_GRAD0_opsz24.svg">
+            <h2>Card</h2>
+        </div>
+        <div class="icons">
+            <img src="images/query_stats_FILL0_wght400_GRAD0_opsz24.svg">
+            <h2>Trade</h2>
+        </div>
+    </nav> -->
+</body>
+</html>
